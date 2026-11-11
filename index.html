@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Ganisetti Sowjanya - Computer Science and Cybersecurity student, Java developer, and aspiring cybersecurity professional.">
+  <meta name="description" content="Portfolio of Ganisetti Sowjanya - Computer Science and Cybersecurity student.">
   <meta name="theme-color" content="#f7f9ff">
+
   <title>Ganisetti Sowjanya | Cybersecurity & CSE Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,12 +35,18 @@
       scroll-behavior: smooth;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
     body {
       font-family: "DM Sans", sans-serif;
       background: var(--background);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
+      overflow-y: auto;
     }
 
     h1, h2, h3, h4 {
@@ -101,9 +108,10 @@
     .navbar {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(228, 234, 244, 0.8);
     }
@@ -131,7 +139,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 27px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -174,7 +182,6 @@
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden;
       background:
         radial-gradient(circle at 85% 20%, #e2ebff 0, transparent 28%),
         radial-gradient(circle at 10% 90%, #eaf2ff 0, transparent 28%),
@@ -190,6 +197,7 @@
       border-radius: 50%;
       right: -150px;
       top: 130px;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -674,6 +682,7 @@
       gap: 17px;
       padding: 22px;
       transition: 0.3s;
+      min-width: 0;
     }
 
     .certificate-icon {
@@ -840,7 +849,7 @@
       color: #8eb1ff;
     }
 
-    /* SCROLL ANIMATION */
+    /* SCROLL REVEAL */
 
     .reveal {
       opacity: 0;
@@ -853,11 +862,31 @@
       transform: translateY(0);
     }
 
+    /* Keep content visible if JS/observer is unavailable */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
       .nav-links {
-        gap: 15px;
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 0.83rem;
       }
 
       .hero-grid {
@@ -908,6 +937,7 @@
       .nav-links a {
         display: block;
         padding: 5px 0;
+        font-size: 0.95rem;
       }
 
       .nav-contact {
@@ -997,21 +1027,6 @@
         left: -8px;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
   </style>
 </head>
 
@@ -1042,7 +1057,7 @@
 
   <main>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-grid">
 
@@ -1071,7 +1086,7 @@
             </a>
 
             <a
-              href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/Ganisetti Sowjanya Resume.pdf"
+              href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/Ganisetti%20Sowjanya%20Resume.pdf"
               class="btn btn-outline"
               target="_blank"
               rel="noopener noreferrer">
@@ -1101,7 +1116,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-heading reveal">
@@ -1170,7 +1185,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
+    <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-heading reveal">
@@ -1247,7 +1262,7 @@
       </div>
     </section>
 
-    <!-- INTERNSHIP SECTION -->
+    <!-- INTERNSHIP -->
     <section class="section" id="experience">
       <div class="container">
         <div class="section-heading reveal">
@@ -1284,7 +1299,7 @@
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
         <div class="section-heading reveal">
@@ -1295,7 +1310,6 @@
 
         <div class="projects-grid">
 
-          <!-- FORENSIC PROJECT -->
           <article class="project-card reveal">
             <div class="project-number">🔐</div>
 
@@ -1331,27 +1345,20 @@
             </div>
 
             <div class="project-links">
-              <a
-                class="project-link"
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/projects/A_Framework_for_Digital_Forensics_Using_Blockchain_to_Secure_Digital_Data.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a class="project-link"
+                href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/projects/A_Framework_for_Digital_Forensics_Using_Blockchain_to_Secure_Digital_Data.pdf"
+                target="_blank" rel="noopener noreferrer">
                 📄 Research PDF
               </a>
 
-              <!-- Demo link moved here as requested.
-                   Note: the supplied MP4 filename is object_detection_demo.mp4. -->
-              <a
-                class="project-link"
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/projects/object_detection_demo.mp4"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a class="project-link"
+                href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/projects/DigitalEvidence%20Demo.mp4"
+                target="_blank" rel="noopener noreferrer">
                 ▶ Watch Demo
               </a>
             </div>
           </article>
 
-          <!-- OBJECT DETECTION PROJECT -->
           <article class="project-card reveal">
             <div class="project-number">👁️</div>
 
@@ -1382,20 +1389,35 @@
             </div>
 
             <div class="project-links">
-              <a
-                class="project-link"
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/projects/Object_Detection_Report.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a class="project-link"
+                href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/projects/Object_Detection_Report.pdf"
+                target="_blank" rel="noopener noreferrer">
                 📄 Research PDF
               </a>
 
-              <a
-                class="project-link"
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/projects/object_detection.py"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a class="project-link"
+                href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/projects/object_detection.py"
+                target="_blank" rel="noopener noreferrer">
                 &lt;/&gt; Source Code
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">🔎</div>
+
+            <h3>Digital Forensics Project Report</h3>
+
+            <p>
+              Project report describing the digital forensics work
+              and the concepts explored during development.
+            </p>
+
+            <div class="project-links">
+              <a class="project-link"
+                href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/projects/Digital_Forensics_Project_Report.pdf"
+                target="_blank" rel="noopener noreferrer">
+                📄 View Project Report
               </a>
             </div>
           </article>
@@ -1404,7 +1426,7 @@
       </div>
     </section>
 
-    <!-- EDUCATION SECTION -->
+    <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="container">
         <div class="section-heading reveal">
@@ -1446,9 +1468,10 @@
       </div>
     </section>
 
-    <!-- CERTIFICATES SECTION -->
+    <!-- CERTIFICATES: ALL 11 ACTUAL REPOSITORY FILES -->
     <section class="section" id="certificates">
       <div class="container">
+
         <div class="section-heading reveal">
           <span class="eyebrow">Learning and achievements</span>
           <h2>Certifications</h2>
@@ -1461,27 +1484,15 @@
             <div class="certificate-icon">☕</div>
             <div>
               <h3>Programming and OOP using Java</h3>
-              <p>23 August 2026</p>
-              <a
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/certificates/Programming_and_OOPs.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Certificate ↗
-              </a>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Programming_and_OOPs.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
             </div>
           </div>
 
           <div class="certificate-card reveal">
             <div class="certificate-icon">🤖</div>
             <div>
-              <h3>Generative AI - FP</h3>
-              <p>8 September 2026</p>
-              <a
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/certificates/Generative_AI_Certificate.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Certificate ↗
-              </a>
+              <h3>Generative AI Certificate</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Generative_AI_Certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
             </div>
           </div>
 
@@ -1489,13 +1500,7 @@
             <div class="certificate-icon">📊</div>
             <div>
               <h3>Data Structures and Algorithms using Java</h3>
-              <p>8 September 2026</p>
-              <a
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/certificates/Data_Structures_and_Algorithms_Certificate.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Certificate ↗
-              </a>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Data_Structures_and_Algorithms_Certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
             </div>
           </div>
 
@@ -1503,37 +1508,74 @@
             <div class="certificate-icon">🗄️</div>
             <div>
               <h3>Database Management System (HSQL)</h3>
-              <p>23 September 2026</p>
-              <a
-                href="https://codex-inline-visualization-efd160a54b314ce8.web-sandbox.oaiusercontent.com/assets/certificates/DBMS_HSQL_Certificate.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
-                View Certificate ↗
-              </a>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/DBMS%20HSQL%20CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">⚙️</div>
+            <div>
+              <h3>DevOps Fundamentals</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Deveops%20Fundamentals%20certificate%20.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">🌐</div>
+            <div>
+              <h3>Infosys HTML5 Certificate</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Infosys%20HTML5.Certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">📜</div>
+            <div>
+              <h3>Infosys Certifications</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Infy%20Certifications.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">📱</div>
+            <div>
+              <h3>Mobile App Development Certificate</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Mobile%20App%20Development%20Certificate%20.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">🎓</div>
+            <div>
+              <h3>NPTEL Certificate</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/NPTEL%20Certificate%20Sowjanya%20.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">💻</div>
+            <div>
+              <h3>Udemy Frontend Certificate</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/Udemy%20frontend.certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+            </div>
+          </div>
+
+          <div class="certificate-card reveal">
+            <div class="certificate-icon">🏅</div>
+            <div>
+              <h3>W3Cx HTML5.0x Certificate - edX</h3>
+              <a href="https://sowjanyaganisetti.github.io/sowjanya-portfolio/assets/certificates/W3Cx%20HTML5.0x%20Certificate%20_%20edX.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
             </div>
           </div>
 
         </div>
-
-        <div class="workshops reveal">
-          <h3>Additional Certifications & Workshops</h3>
-
-          <div class="workshop-list">
-            <span>NPTEL – Privacy and Security in Social Media (Elite Silver, 75%)</span>
-            <span>TANASVI – Java Full Stack Web Development</span>
-            <span>W3Cx – HTML5 and CSS3 (edX)</span>
-            <span>Infosys – JavaScript, HTML and CSS3</span>
-            <span>DevOps Fundamentals</span>
-            <span>Cyber Security and Ethical Hacking</span>
-            <span>Mobile App Development – Data Pro</span>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section class="section contact-section" id="contact">
       <div class="container">
+
         <div class="section-heading reveal">
           <span class="eyebrow">Let's connect</span>
           <h2>Get In Touch</h2>
@@ -1572,10 +1614,8 @@
             <div>
               <strong>LinkedIn</strong>
               <span>
-                <a
-                  href="https://www.linkedin.com/in/sowjanya-ganisetti-665a0b2b9"
-                  target="_blank"
-                  rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/sowjanya-ganisetti-665a0b2b9"
+                  target="_blank" rel="noopener noreferrer">
                   Connect on LinkedIn ↗
                 </a>
               </span>
@@ -1587,10 +1627,8 @@
             <div>
               <strong>GitHub</strong>
               <span>
-                <a
-                  href="https://github.com/sowjanyaganisetti"
-                  target="_blank"
-                  rel="noopener noreferrer">
+                <a href="https://github.com/sowjanyaganisetti"
+                  target="_blank" rel="noopener noreferrer">
                   View GitHub Profile ↗
                 </a>
               </span>
@@ -1605,6 +1643,7 @@
             Send Me an Email ↗
           </a>
         </div>
+
       </div>
     </section>
 
@@ -1629,7 +1668,7 @@
       menuToggle.textContent = isOpen ? "✕" : "☰";
     });
 
-    // CLOSE MENU AFTER CLICKING A NAVIGATION LINK
+    // CLOSE MOBILE MENU AFTER CLICKING A LINK
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("active");
@@ -1638,7 +1677,7 @@
       });
     });
 
-    // REVEAL ELEMENTS ON SCROLL
+    // SCROLL REVEAL
     const revealElements = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
@@ -1650,10 +1689,23 @@
           }
         });
       }, {
-        threshold: 0.12
+        threshold: 0.08,
+        rootMargin: "0px 0px 40px 0px"
       });
 
       revealElements.forEach(element => observer.observe(element));
+
+      // Ensure all content becomes visible if an observer does not trigger.
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          revealElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              element.classList.add("visible");
+            }
+          });
+        }, 300);
+      });
     } else {
       revealElements.forEach(element => element.classList.add("visible"));
     }
